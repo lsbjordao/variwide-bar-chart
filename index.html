@@ -32,11 +32,9 @@
                 labels: {
                     rotation: -53,
                     formatter: function () {
-                        // Procurar o valor associado ao nome do rótulo no array de dados
                         var index = this.axis.names.indexOf(this.value);
                         var value = this.axis.zData[index];
 
-                        // Mostrar o rótulo apenas quando o valor for maior que 10 ou se estiver na lista de índices selecionados
                         return value > 2 || [0,].includes(index) ? this.value : '';
                     },
                     style: {
@@ -55,39 +53,39 @@
             },
             series: [{
                 data: [
-                    ['Leucochloron', 80, 4],
-                    ['Poecilanthe', 77.7777777777778, 7],
-                    ['Exostyles', 75, 3],
-                    ['Poiretia', 75, 9],
-                    ['Collaea', 75, 3],
-                    ['Cerradicola', 75, 12],
-                    ['Luetzelburgia', 71.4285714285714, 10],
-                    ['Acosmium', 66.6666666666667, 2],
-                    ['Parapiptadenia', 66.6666666666667, 4],
-                    ['Pterodon', 66.6666666666667, 2],
-                    ['Riedeliella', 66.6666666666667, 2],
-                    ['Ancistrotropis', 66.6666666666667, 4],
-                    ['Pseudopiptadenia', 63.6363636363636, 7],
-                    ['Cratylia', 62.5, 5],
-                    ['Peltogyne', 62.5, 15],
-                    ['Dahlstedtia', 62.5, 10],
-                    ['Chamaecrista', 60.5978260869565, 223],
-                    ['Trischidium', 60, 3],
-                    // ['Leptolobium', 58.3333333333333, 7],
-                    // ['Arachis', 57.8313253012048, 48],
-                    // ['Periandra', 57.1428571428571, 4],
-                    // ['Hymenolobium', 57.1428571428571, 8],
-                    // ['Andira', 56.6666666666667, 17],
-                    // ['Hymenaea', 54.5454545454546, 12],
-                    // ['Vataireopsis', 50, 2],
-                    // ['Zollernia', 50, 5],
-                    // ['Platycyamus', 50, 1],
-                    // ['Cleobulia', 50, 2],
-                    // ['Panurea', 50, 1],
-                    // ['Dinizia', 50, 1],
-                    // ['Muellera', 46.875, 15],
-                    // ['Cenostigma', 46.6666666666667, 7],
-                    // ['Mimosa', 45.8823529411765, 273],
+                    // ['Leucochloron', 80, 4],
+                    // ['Poecilanthe', 77.7777777777778, 7],
+                    // ['Exostyles', 75, 3],
+                    // ['Poiretia', 75, 9],
+                    // ['Collaea', 75, 3],
+                    // ['Cerradicola', 75, 12],
+                    // ['Luetzelburgia', 71.4285714285714, 10],
+                    // ['Acosmium', 66.6666666666667, 2],
+                    // ['Parapiptadenia', 66.6666666666667, 4],
+                    // ['Pterodon', 66.6666666666667, 2],
+                    // ['Riedeliella', 66.6666666666667, 2],
+                    // ['Ancistrotropis', 66.6666666666667, 4],
+                    // ['Pseudopiptadenia', 63.6363636363636, 7],
+                    // ['Cratylia', 62.5, 5],
+                    // ['Peltogyne', 62.5, 15],
+                    // ['Dahlstedtia', 62.5, 10],
+                    // ['Chamaecrista', 60.5978260869565, 223],
+                    // ['Trischidium', 60, 3],
+                    ['Leptolobium', 58.3333333333333, 7],
+                    ['Arachis', 57.8313253012048, 48],
+                    ['Periandra', 57.1428571428571, 4],
+                    ['Hymenolobium', 57.1428571428571, 8],
+                    ['Andira', 56.6666666666667, 17],
+                    ['Hymenaea', 54.5454545454546, 12],
+                    ['Vataireopsis', 50, 2],
+                    ['Zollernia', 50, 5],
+                    ['Platycyamus', 50, 1],
+                    ['Cleobulia', 50, 2],
+                    ['Panurea', 50, 1],
+                    ['Dinizia', 50, 1],
+                    ['Muellera', 46.875, 15],
+                    ['Cenostigma', 46.6666666666667, 7],
+                    ['Mimosa', 45.8823529411765, 273],
                     // ['Parasenegalia', 45.4545454545455, 5],
                     // ['Discolobium', 42.8571428571429, 3],
                     // ['Martiodendron', 40, 2],
@@ -180,15 +178,22 @@
                     // ['Vicia', 0.401606425702811, 1],
                     // ['Trifolium', 0.335570469798658, 1]
                 ],
-                dataLabels: {
+                dataLabels: [{
                     enabled: true,
-                    format: '{point.y:.0f} %',
-                    rotation: -90,
+                    inside: true,
+                    format: '{point.z}',
                     style: {
-                    fontSize: '18px'
-                }
-
-                },
+                        fontSize: '18px'
+                    }
+                }, {
+                    enabled: true,
+                    inside: false,
+                    format: '{point.y:.0f} %',
+                    rotation: -30,
+                    style: {
+                        fontSize: '18px'
+                    }
+                }],
                 tooltip: {
                     pointFormat: 'Percentage: <b>{point.y} %</b><br>' +
                         'Number of species: <b>{point.z}</b><br>'
